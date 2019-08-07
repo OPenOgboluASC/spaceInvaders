@@ -1,38 +1,86 @@
-function setup(){
-    frameRate(60);
-    createCanvas(1000,700);
+  function setup(){
+    createCanvas(1000, 500)
 }
-
 let playerX = 475;
-let isShooting = false;
-let y = 600;
+let i;
+let energyY = 400;
 
 function draw(){
-    background(0);
-    
-    //PLayer
-    fill(255);
-    rect(playerX,600,50,50);
-    if(keyIsDown(LEFT_ARROW))
-        playerX -= 20;
-        if(playerX < 50)
-            playerX = 50;
-        console.log(isShooting);
-    if(keyIsDown(RIGHT_ARROW))
-        playerX += 20;
-        if(playerX > 900)
-            playerX = 900;
-        console.log(isShooting);
+    background(255);
+    rect(playerX,400,50,50);
+    fill('blue');
 
-    //Shooting
-    if(keyCode === 32 && isShooting == false){
-        isShooting = true;
-        while(isShooting && y > 0){
-            console.log(y + " " + isShooting);
-            y -= 100;
-            rect(playerX + 15,y,20,20);
-        }
-        y = 600;
-        isShooting = false;
-    }
+    //the enemies
+    rect(400, 10, 100, 50);
+    rect(250, 80, 100, 50);
+    rect(400, 80, 100, 50);
+    rect(250, 10, 100, 50);
+    rect(100, 10, 100, 50);
+    rect(100, 80, 100, 50);
+    rect(550, 10, 100, 50);
+    rect(550, 80, 100, 50);
+    rect(700, 10, 100, 50);
+    rect(700, 80, 100, 50);
+    rect(850, 10, 100, 50);
+    rect(850, 80, 100, 50);
+    rect(-50, 10, 100, 50);
+    rect(-50, 80, 100, 50);
+    fill('black');
+     
+    //projectile
+    ellipse(playerX, energyY, 10, 10);
+
+    
+    if (keyIsDown(LEFT_ARROW)) {
+        playerX -= 20; 
+     } else if (keyIsDown(RIGHT_ARROW)) {
+         playerX += 20;
+     }
+    
 }
+
+function keyPressed(){
+     if(keyCode === UP_ARROW){
+           energyY -= 300
+     }
+     if(keyCode === DOWN_ARROW){
+         energyY += 300
+     }
+    
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
